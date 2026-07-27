@@ -1,0 +1,152 @@
+---
+title: "Breeding data and relationship matrices"
+author: "Muhammad Farooqi"
+package: BreedingExperiment
+output:
+  BiocStyle::html_document:
+    toc_float: true
+vignette: >
+  %\VignetteIndexEntry{Breeding data and relationship matrices}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+```{r setup}
+library(BreedingExperiment)
+```
+
+A quantitative-genetic analysis needs four things at once: the marker
+genotypes, the phenotypes, the pedigree, and where the markers sit on the
+genome. Keeping them in four separate objects is where mistakes creep in, as
+soon as one of them is filtered or reordered.
+
+`BreedingExperiment` keeps them together. It extends
+`RangedSummarizedExperiment`, so markers are rows, individuals are columns, and
+the marker positions are a `GRanges`. Everything you already know about
+Bioconductor containers applies, and subsetting can never desynchronise the
+parts.
+
+## Building an object
+
+`simulateBreeding()` produces a pedigreed population for experimenting.
+
+```{r}
+be <- simulateBreeding(n_ind = 40, n_marker = 400, genotyped = 25, seed = 1)
+be
+```
+
+Note the last line: the pedigree describes 40 individuals but only 25 were
+genotyped. That is the normal situation in a breeding programme, and it is the
+reason `Hmatrix()` exists.
+
+The standard accessors work:
+
+```{r}
+dim(be)
+genotypes(be)[1:4, 1:5]
+head(SummarizedExperiment::colData(be), 3)
+head(pedigree(be), 3)
+```
+
+Because markers are genomic ranges, a data set can be cut down to a region:
+
+```{r}
+chr1 <- be[as.character(GenomicRanges::seqnames(
+  SummarizedExperiment::rowRanges(be))) == "chr1", ]
+dim(chr1)
+```
+
+Your own data goes in the same way:
+
+```{r, eval = FALSE}
+be <- BreedingExperiment(
+  genotypes  = dosage_matrix,          # markers x individuals, 0/1/2
+  phenotypes = phenotype_data_frame,   # one row per individual
+  pedigree   = pedigree_data_frame,    # id, sire, dam
+  rowRanges  = marker_granges)         # optional, but worth having
+)
+```
+
+## Quality control
+
+```{r}
+be <- filterMarkers(be, min_maf = 0.05, min_call_rate = 0.9)
+be <- imputeMarkers(be)
+head(alleleFrequency(be), 3)
+```
+
+## Relationships from the pedigree
+
+`Amatrix()` builds the numerator relationship matrix. Its entries are the
+familiar textbook values: one half between parent and offspring, one quarter
+between grandparent and grandchild.
+
+```{r}
+A <- Amatrix(be)
+round(A[1:5, 1:5], 3)
+```
+
+The diagonal carries inbreeding:
+
+```{r}
+summary(inbreeding(be))
+```
+
+## Relationships from the markers
+
+`Gmatrix()` is the genomic relationship matrix. It measures what actually
+happened rather than what was expected: two full sibs have a pedigree
+relationship of exactly 0.5, but their genomic relationship varies around it,
+because Mendelian sampling gave them different halves of their parents.
+
+```{r}
+G <- Gmatrix(be)
+round(G[1:5, 1:5], 3)
+```
+
+The two agree in the aggregate, which is a useful sanity check on any data set:
+
+```{r}
+gen <- colnames(be)
+A22 <- A[gen, gen]
+cor(A22[upper.tri(A22)], G[upper.tri(G)])
+```
+
+`Dmatrix()` gives the dominance relationships, orthogonal to the additive ones,
+for models that separate the two.
+
+## Combining both: the single-step matrix
+
+Using only `G` discards every ungenotyped relative. Using only `A` discards the
+markers. `Hmatrix()` keeps both, and covers every individual in the pedigree:
+
+```{r}
+H <- Hmatrix(be, blend = 0.05)
+dim(H)
+length(attr(H, "genotyped"))
+```
+
+The genotyped block comes from the markers, the ungenotyped block from the
+pedigree corrected by what the markers say about genotyped relatives, and the
+off-diagonal blocks connect them. Two checks confirm the behaviour: blending
+entirely towards the pedigree returns `A22`, and the result stays positive
+definite.
+
+```{r}
+H1 <- Hmatrix(be, blend = 1, tune = FALSE)
+max(abs(H1[gen, gen] - A22))
+min(eigen(H, only.values = TRUE)$values) > 0
+```
+
+`H` is the relationship structure used by single-step genomic prediction. Pass
+it, or its inverse, to whichever mixed-model solver you prefer.
+
+## Session information
+
+```{r}
+sessionInfo()
+```

@@ -1,0 +1,62 @@
+Package: BreedingExperiment
+Title: Container and Relationship Matrices for Breeding and Quantitative
+        Genomics
+Version: 0.99.0
+Authors@R:
+    person("Muhammad", "Farooqi", email = "mqfarooqi@gmail.com",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-4918-9791"))
+Description: Provides the BreedingExperiment class, a container that keeps
+    marker genotypes, phenotypes, pedigree and marker coordinates together in
+    one object, extending RangedSummarizedExperiment so that markers are
+    addressable as genomic ranges. Relationship matrices central to
+    quantitative genetics are computed as methods on the container: the
+    pedigree numerator relationship matrix of Henderson (1976)
+    <doi:10.2307/2529339>, the genomic relationship matrix of VanRaden (2008)
+    <doi:10.3168/jds.2007-0980>, the dominance relationship matrix of Vitezica,
+    Varona and Legarra (2013) <doi:10.1534/genetics.113.155176>, and the
+    single-step matrix combining pedigree and genomic information of Legarra,
+    Aguilar and Misztal (2009) <doi:10.3168/jds.2009-2061> and Christensen and
+    Lund (2010) <doi:10.1186/1297-9686-42-2>, which allows genotyped and
+    ungenotyped individuals to be analysed together as in Aguilar and others
+    (2010) <doi:10.3168/jds.2009-2730>. Marker quality control, imputation,
+    inbreeding coefficients and allele frequency summaries are included.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en-GB
+Depends:
+    R (>= 4.4.0),
+    SummarizedExperiment
+Imports:
+    methods,
+    stats,
+    utils,
+    S4Vectors,
+    GenomicRanges,
+    IRanges,
+    BiocGenerics
+Suggests:
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown,
+    BiocStyle
+VignetteBuilder: knitr
+biocViews: Software, Genetics, SNP, GenomicVariation, DataRepresentation,
+        Infrastructure, Regression
+URL: https://github.com/mqfarooqi1/BreedingExperiment
+BugReports: https://github.com/mqfarooqi1/BreedingExperiment/issues
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+Collate:
+    'AllClasses.R'
+    'AllGenerics.R'
+    'BreedingExperiment-package.R'
+    'constructor.R'
+    'accessors.R'
+    'pedigree.R'
+    'relationship.R'
+    'singlestep.R'
+    'qc.R'
+    'simulate.R'
+    'show.R'
+Config/roxygen2/version: 8.0.0

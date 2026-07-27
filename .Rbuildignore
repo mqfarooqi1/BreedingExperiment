@@ -1,0 +1,7 @@
+^\.git$
+^\.gitignore$
+^validate\.R$
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.github$
+^cran-comments\.md$
