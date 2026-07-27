@@ -6,7 +6,6 @@ library(BreedingExperiment)
 #> Loading required package: SummarizedExperiment
 #> Loading required package: MatrixGenerics
 #> Loading required package: matrixStats
-#> Warning: package 'matrixStats' was built under R version 4.5.3
 #> 
 #> Attaching package: 'MatrixGenerics'
 #> The following objects are masked from 'package:matrixStats':
@@ -30,7 +29,6 @@ library(BreedingExperiment)
 #> Loading required package: stats4
 #> Loading required package: BiocGenerics
 #> Loading required package: generics
-#> Warning: package 'generics' was built under R version 4.5.3
 #> 
 #> Attaching package: 'generics'
 #> The following objects are masked from 'package:base':
@@ -51,7 +49,6 @@ library(BreedingExperiment)
 #>     rbind, Reduce, rownames, sapply, saveRDS, table, tapply, unique,
 #>     unsplit, which.max, which.min
 #> Loading required package: S4Vectors
-#> Warning: package 'S4Vectors' was built under R version 4.5.3
 #> 
 #> Attaching package: 'S4Vectors'
 #> The following object is masked from 'package:utils':
@@ -61,14 +58,8 @@ library(BreedingExperiment)
 #> 
 #>     expand.grid, I, unname
 #> Loading required package: IRanges
-#> 
-#> Attaching package: 'IRanges'
-#> The following object is masked from 'package:grDevices':
-#> 
-#>     windows
 #> Loading required package: Seqinfo
 #> Loading required package: Biobase
-#> Warning: package 'Biobase' was built under R version 4.5.3
 #> Welcome to Bioconductor
 #> 
 #>     Vignettes contain introductory material; view with
@@ -82,6 +73,8 @@ library(BreedingExperiment)
 #> The following objects are masked from 'package:matrixStats':
 #> 
 #>     anyMissing, rowMedians
+#> Warning: replacing previous import 'S4Arrays::makeNindexFromArrayViewport' by
+#> 'DelayedArray::makeNindexFromArrayViewport' when loading 'SummarizedExperiment'
 ```
 
 A quantitative-genetic analysis needs four things at once: the marker
@@ -132,7 +125,7 @@ table(SummarizedExperiment::colData(be)$generation)
 #>  3  4  5 
 #> 35 40 45
 summary(SummarizedExperiment::colData(be)$yield)   # females only
-#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
 #>    4203    5605    5934    6000    6278    8097      54
 ```
 
@@ -313,45 +306,46 @@ prefer.
 ``` r
 
 sessionInfo()
-#> R version 4.5.2 (2025-10-31 ucrt)
-#> Platform: x86_64-w64-mingw32/x64
-#> Running under: Windows 11 x64 (build 26200)
+#> R version 4.6.1 (2026-06-24)
+#> Platform: x86_64-pc-linux-gnu
+#> Running under: Ubuntu 24.04.4 LTS
 #> 
 #> Matrix products: default
-#>   LAPACK version 3.12.1
+#> BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+#> LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
 #> 
 #> locale:
-#> [1] LC_COLLATE=English_Australia.utf8  LC_CTYPE=English_Australia.utf8   
-#> [3] LC_MONETARY=English_Australia.utf8 LC_NUMERIC=C                      
-#> [5] LC_TIME=English_Australia.utf8    
+#>  [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
+#>  [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+#>  [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
+#> [10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
 #> 
-#> time zone: Australia/Sydney
-#> tzcode source: internal
+#> time zone: UTC
+#> tzcode source: system (glibc)
 #> 
 #> attached base packages:
 #> [1] stats4    stats     graphics  grDevices utils     datasets  methods  
 #> [8] base     
 #> 
 #> other attached packages:
-#>  [1] BreedingExperiment_0.99.0   SummarizedExperiment_1.40.0
-#>  [3] Biobase_2.70.0              GenomicRanges_1.62.1       
-#>  [5] Seqinfo_1.0.0               IRanges_2.44.0             
-#>  [7] S4Vectors_0.48.1            BiocGenerics_0.56.0        
-#>  [9] generics_0.1.4              MatrixGenerics_1.22.0      
-#> [11] matrixStats_1.5.0           BiocStyle_2.38.0           
+#>  [1] BreedingExperiment_0.99.0   SummarizedExperiment_1.42.0
+#>  [3] Biobase_2.72.0              GenomicRanges_1.64.0       
+#>  [5] Seqinfo_1.2.0               IRanges_2.46.0             
+#>  [7] S4Vectors_0.50.1            BiocGenerics_0.58.1        
+#>  [9] generics_0.1.4              MatrixGenerics_1.24.0      
+#> [11] matrixStats_1.5.0           BiocStyle_2.40.0           
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] Matrix_1.7-5        jsonlite_2.0.0      compiler_4.5.2     
+#>  [1] Matrix_1.7-5        jsonlite_2.0.0      compiler_4.6.1     
 #>  [4] BiocManager_1.30.27 jquerylib_0.1.4     systemfonts_1.3.2  
 #>  [7] textshaping_1.0.5   yaml_2.3.12         fastmap_1.2.0      
-#> [10] lattice_0.22-9      XVector_0.50.0      R6_2.6.1           
-#> [13] S4Arrays_1.10.1     knitr_1.51          htmlwidgets_1.6.4  
-#> [16] DelayedArray_0.36.1 bookdown_0.47       desc_1.4.3         
-#> [19] bslib_0.11.0        rlang_1.3.0         cachem_1.1.0       
-#> [22] xfun_0.60           fs_2.1.0            sass_0.4.10        
-#> [25] otel_0.2.0          SparseArray_1.10.10 cli_3.6.6          
-#> [28] pkgdown_2.2.1       grid_4.5.2          digest_0.6.39      
-#> [31] lifecycle_1.0.5     evaluate_1.0.5      ragg_1.5.2         
-#> [34] abind_1.4-8         rmarkdown_2.31      tools_4.5.2        
-#> [37] htmltools_0.5.9
+#> [10] lattice_0.22-9      XVector_0.52.0      R6_2.6.1           
+#> [13] S4Arrays_1.12.0     knitr_1.51          DelayedArray_0.38.2
+#> [16] bookdown_0.47       desc_1.4.3          bslib_0.11.0       
+#> [19] rlang_1.3.0         cachem_1.1.0        xfun_0.60          
+#> [22] fs_2.1.0            sass_0.4.10         otel_0.2.0         
+#> [25] SparseArray_1.12.2  cli_3.6.6           pkgdown_2.2.1      
+#> [28] digest_0.6.39       grid_4.6.1          lifecycle_1.0.5    
+#> [31] evaluate_1.0.5      ragg_1.5.2          abind_1.4-8        
+#> [34] rmarkdown_2.31      tools_4.6.1         htmltools_0.5.9
 ```

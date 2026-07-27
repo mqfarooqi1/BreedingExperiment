@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/mqfarooqi1/BreedingExperiment/blob/HEAD/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/mqfarooqi1/BreedingExperiment/blob/main/DESCRIPTION)
 
 Farooqi M (2026). *BreedingExperiment: Container and Relationship
 Matrices for Breeding and Quantitative Genomics*. R package version
