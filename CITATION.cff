@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use BreedingExperiment, please cite it as below."
+title: "BreedingExperiment: Container and Relationship Matrices for Breeding and Quantitative Genomics"
+abstract: >-
+  A container keeping marker genotypes, phenotypes, pedigree and marker coordinates together, with pedigree, genomic, dominance and single-step relationship matrices computed as methods on it.
+type: software
+authors:
+  - given-names: Muhammad
+    family-names: Farooqi
+    email: mqfarooqi@gmail.com
+    orcid: "https://orcid.org/0000-0003-4918-9791"
+version: 0.99.0
+date-released: "2026-07-27"
+license: MIT
+repository-code: "https://github.com/mqfarooqi1/BreedingExperiment"
+url: "https://github.com/mqfarooqi1/BreedingExperiment"
+keywords:
+  - R
+  - CRAN
