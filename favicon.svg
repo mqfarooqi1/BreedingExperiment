@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 231" width="200" height="231" role="img" aria-label="BreedingExperiment"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#10261F"></stop>
+      <stop offset="55%" stop-color="#0B1A16"></stop>
+      <stop offset="100%" stop-color="#07110E"></stop>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2F9E68"></stop>
+      <stop offset="50%" stop-color="#4CC38A"></stop>
+      <stop offset="100%" stop-color="#F2C94C"></stop>
+    </linearGradient>
+  </defs><polygon points="100,3 197,58 197,173 100,228 3,173 3,58" fill="url(#bg)"></polygon><g stroke="#4CC38A" stroke-width="2.2" fill="none" stroke-linecap="round">
+    <path d="M64 48 V60 H136 V48"></path>
+    <path d="M100 60 V72"></path>
+    <path d="M76 86 V96 H124 V86"></path>
+    <path d="M100 96 V108"></path>
+  </g><g fill="#2F9E68">
+    <circle cx="64" cy="42" r="7.5"></circle><circle cx="136" cy="42" r="7.5"></circle>
+  </g><g fill="#4CC38A">
+    <circle cx="76" cy="79" r="7.5"></circle><circle cx="124" cy="79" r="7.5"></circle>
+  </g><circle cx="100" cy="117" r="8.5" fill="#F2C94C"></circle><g>
+    <rect x="52" y="132" width="96" height="26" rx="3" fill="#0E211B" stroke="#2F9E68" stroke-width="1.4"></rect>
+    <g>
+      <rect x="56" y="136" width="8" height="8" rx="1.5" fill="#F2C94C"></rect>
+      <rect x="67" y="136" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".55"></rect>
+      <rect x="78" y="136" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".3"></rect>
+      <rect x="89" y="136" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".55"></rect>
+      <rect x="100" y="136" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".3"></rect>
+      <rect x="111" y="136" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".2"></rect>
+      <rect x="122" y="136" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".3"></rect>
+      <rect x="133" y="136" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".2"></rect>
+
+      <rect x="56" y="147" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".55"></rect>
+      <rect x="67" y="147" width="8" height="8" rx="1.5" fill="#F2C94C"></rect>
+      <rect x="78" y="147" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".55"></rect>
+      <rect x="89" y="147" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".3"></rect>
+      <rect x="100" y="147" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".55"></rect>
+      <rect x="111" y="147" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".3"></rect>
+      <rect x="122" y="147" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".2"></rect>
+      <rect x="133" y="147" width="8" height="8" rx="1.5" fill="#2F9E68" opacity=".3"></rect>
+    </g>
+  </g><text x="100" y="180" font-size="19" text-anchor="middle" fill="#E9F5EF" font-family="'Inter','Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">Breeding</text><text x="100" y="200" font-size="15" text-anchor="middle" fill="#9FE3C0" font-family="'Inter','Segoe UI',Helvetica,Arial,sans-serif" font-weight="600" letter-spacing="0.4">Experiment</text><polygon points="100,3 197,58 197,173 100,228 3,173 3,58" fill="none" stroke="url(#rim)" stroke-width="5"></polygon></svg>
