@@ -1,5 +1,13 @@
 # Changelog
 
+## BreedingExperiment 0.99.2
+
+- Split
+  [`simulateBreeding()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/simulateBreeding.md)
+  into helpers so no function exceeds the recommended length.
+- Wrapped over-long source lines and added the `QualityControl`
+  biocView.
+
 ## BreedingExperiment 0.99.1
 
 - Removed a non-standard field from `DESCRIPTION`.

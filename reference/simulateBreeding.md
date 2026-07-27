@@ -73,7 +73,6 @@ need the same population twice.
 
 ``` r
 set.seed(1)
-set.seed(1)
 be <- simulateBreeding(n_ind = 25, n_marker = 100)
 be
 #> class: BreedingExperiment
