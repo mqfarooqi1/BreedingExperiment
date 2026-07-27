@@ -1,7 +1,7 @@
 Package: BreedingExperiment
 Title: Container and Relationship Matrices for Breeding and Quantitative
         Genomics
-Version: 0.99.0
+Version: 0.99.1
 Authors@R:
     person("Muhammad", "Farooqi", email = "mqfarooqi@gmail.com",
            role = c("aut", "cre"),
@@ -43,9 +43,6 @@ Suggests:
 VignetteBuilder: knitr
 biocViews: Software, Genetics, SNP, GenomicVariation, DataRepresentation,
         Infrastructure, Regression
-Note: Assisted-by: Claude (Anthropic). Substantial parts of this package
-        were written with AI assistance under the author's direction; see
-        the Provenance section of ?`BreedingExperiment-package`.
 URL: https://github.com/mqfarooqi1/BreedingExperiment,
         https://mqfarooqi1.github.io/BreedingExperiment/
 BugReports: https://github.com/mqfarooqi1/BreedingExperiment/issues

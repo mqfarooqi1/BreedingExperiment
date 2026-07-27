@@ -1,3 +1,8 @@
+# BreedingExperiment 0.99.1
+
+* Removed a non-standard field from `DESCRIPTION`.
+* Added citation metadata (`inst/CITATION` and `CITATION.cff`).
+
 # BreedingExperiment 0.99.0
 
 First submission to Bioconductor.
