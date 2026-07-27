@@ -30,18 +30,33 @@ the marker positions are a `GRanges`. Everything you already know about
 Bioconductor containers applies, and subsetting can never desynchronise the
 parts.
 
-## Building an object
+## The demonstration data
 
-`simulateBreeding()` produces a pedigreed population for experimenting.
+The package ships with `demoBreeding`, a simulated five-generation population
+built to behave like a real programme rather than a textbook example.
 
 ```{r}
-be <- simulateBreeding(n_ind = 40, n_marker = 400, genotyped = 25, seed = 1)
+data(demoBreeding)
+be <- demoBreeding
 be
 ```
 
-Note the last line: the pedigree describes 40 individuals but only 25 were
-genotyped. That is the normal situation in a breeding programme, and it is the
+Read the last line carefully: the pedigree describes **180 individuals but only
+120 were genotyped**. The two earliest generations were born before genotyping
+began. That is the normal situation in a breeding programme, and it is the
 reason `Hmatrix()` exists.
+
+The data also carry the other awkward features of real records — a trait
+measured on one sex only, a little missing genotype data, and unequal family
+sizes because a few sires were used heavily.
+
+```{r}
+table(SummarizedExperiment::colData(be)$generation)
+summary(SummarizedExperiment::colData(be)$yield)   # females only
+```
+
+If you would rather generate your own population, `simulateBreeding()` does
+that.
 
 The standard accessors work:
 
@@ -74,8 +89,10 @@ be <- BreedingExperiment(
 ## Quality control
 
 ```{r}
+nrow(be)
 be <- filterMarkers(be, min_maf = 0.05, min_call_rate = 0.9)
 be <- imputeMarkers(be)
+nrow(be)
 head(alleleFrequency(be), 3)
 ```
 

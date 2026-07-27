@@ -45,6 +45,7 @@ biocViews: Software, Genetics, SNP, GenomicVariation, DataRepresentation,
         Infrastructure, Regression
 URL: https://github.com/mqfarooqi1/BreedingExperiment
 BugReports: https://github.com/mqfarooqi1/BreedingExperiment/issues
+LazyData: true
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
 Collate:
@@ -58,5 +59,6 @@ Collate:
     'singlestep.R'
     'qc.R'
     'simulate.R'
+    'data.R'
     'show.R'
 Config/roxygen2/version: 8.0.0

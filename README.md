@@ -43,15 +43,21 @@ remotes::install_github("mqfarooqi1/BreedingExperiment")
 ```r
 library(BreedingExperiment)
 
-be <- simulateBreeding(n_ind = 40, n_marker = 400, genotyped = 25, seed = 1)
-be
+data(demoBreeding)
+demoBreeding
 #> class: BreedingExperiment
-#> markers: 400  individuals genotyped: 25
+#> markers: 900  individuals genotyped: 120
 #> assays(1): genotype
-#> phenotypes(2): phenotype trueBV
-#> sequences(5): chr1 chr2 chr3 chr4 chr5
-#> pedigree: 40 individuals (25 genotyped, 15 not; 10 founders)
+#> phenotypes(6): generation sex yield stature trueBV_yield trueBV_stature
+#> sequences(10): chr1 chr2 chr3 chr4 chr5 chr6
+#> pedigree: 180 individuals (120 genotyped, 60 not; 30 founders)
 ```
+
+`demoBreeding` is a simulated five-generation population shaped like a real
+programme: the two earliest generations were born before genotyping began, so
+**60 of the 180 individuals have no markers**; one trait is recorded on females
+only; a few sires dominate; and about one per cent of calls are missing. Use
+`simulateBreeding()` to generate your own.
 
 Your own data goes in the same way:
 
