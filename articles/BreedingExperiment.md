@@ -328,7 +328,7 @@ sessionInfo()
 #> [8] base     
 #> 
 #> other attached packages:
-#>  [1] BreedingExperiment_0.99.2   SummarizedExperiment_1.42.0
+#>  [1] BreedingExperiment_0.99.3   SummarizedExperiment_1.42.0
 #>  [3] Biobase_2.72.0              GenomicRanges_1.64.0       
 #>  [5] Seqinfo_1.2.0               IRanges_2.46.0             
 #>  [7] S4Vectors_0.50.1            BiocGenerics_0.58.1        

@@ -1,5 +1,10 @@
 # Changelog
 
+## BreedingExperiment 0.99.3
+
+- Version bump only, to re-run the Bioconductor checks after a transient
+  bioconductor.org outage (HTTP 504) aborted BiocCheck. No code changes.
+
 ## BreedingExperiment 0.99.2
 
 - Split
