@@ -23,6 +23,7 @@ analysis the pedigree usually names more individuals than this, and the
 difference is what \code{\link[=Hmatrix]{Hmatrix()}} reconciles.
 }
 \examples{
-be <- simulateBreeding(n_ind = 8, n_marker = 20, seed = 1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 8, n_marker = 20)
 genotyped(be)
 }

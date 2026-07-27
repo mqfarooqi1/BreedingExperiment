@@ -11,8 +11,7 @@ simulateBreeding(
   genotyped = NULL,
   n_qtl = 20,
   h2 = 0.4,
-  missing = 0,
-  seed = NULL
+  missing = 0
 )
 }
 \arguments{
@@ -30,8 +29,6 @@ recent ones. Defaults to all of them.}
 \item{h2}{Narrow-sense heritability of the simulated trait.}
 
 \item{missing}{Proportion of genotype calls set to \code{NA}.}
-
-\item{seed}{Optional seed, for reproducibility.}
 }
 \value{
 A \link[=BreedingExperiment-class]{BreedingExperiment} object with a \code{phenotype} column and the
@@ -47,9 +44,14 @@ agree with each other.
 \details{
 Set \code{genotyped} below \code{n_ind} to leave some individuals ungenotyped, which is
 the situation \code{\link[=Hmatrix]{Hmatrix()}} is designed for.
+
+The function draws random numbers but does not set the seed itself. Call
+\code{\link[=set.seed]{set.seed()}} beforehand if you need the same population twice.
 }
 \examples{
-be <- simulateBreeding(n_ind = 25, n_marker = 100, seed = 1)
+set.seed(1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 25, n_marker = 100)
 be
 head(as.data.frame(colData(be)))
 }

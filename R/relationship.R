@@ -22,7 +22,8 @@
 #'   \doi{10.3168/jds.2007-0980}
 #' @seealso [Amatrix()], [Dmatrix()], [Hmatrix()]
 #' @examples
-#' be <- simulateBreeding(n_ind = 20, n_marker = 200, seed = 1)
+#' set.seed(1)
+#' be <- simulateBreeding(n_ind = 20, n_marker = 200)
 #' G <- Gmatrix(be)
 #' round(G[1:4, 1:4], 3)
 #' @name Gmatrix
@@ -58,7 +59,8 @@ setMethod("Gmatrix", "BreedingExperiment",
 #'   \doi{10.1534/genetics.113.155176}
 #' @seealso [Gmatrix()]
 #' @examples
-#' be <- simulateBreeding(n_ind = 20, n_marker = 200, seed = 1)
+#' set.seed(1)
+#' be <- simulateBreeding(n_ind = 20, n_marker = 200)
 #' D <- Dmatrix(be)
 #' round(D[1:4, 1:4], 3)
 #' @name Dmatrix

@@ -22,7 +22,8 @@ Returns the inbreeding coefficient of each individual, obtained from the
 diagonal of the pedigree relationship matrix as \eqn{F_i = A_{ii} - 1}.
 }
 \examples{
-be <- simulateBreeding(n_ind = 12, n_marker = 30, seed = 1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 12, n_marker = 30)
 round(inbreeding(be), 4)
 }
 \seealso{

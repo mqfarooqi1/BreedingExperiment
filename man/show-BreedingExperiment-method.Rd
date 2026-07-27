@@ -17,5 +17,5 @@ Prints the size of the object, the assays it holds, the phenotype columns
 and a summary of the pedigree, including how many individuals are genotyped.
 }
 \examples{
-simulateBreeding(n_ind = 10, n_marker = 20, seed = 1)
+simulateBreeding(n_ind = 10, n_marker = 20)
 }

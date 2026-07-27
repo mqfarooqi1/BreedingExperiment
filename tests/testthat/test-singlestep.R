@@ -1,4 +1,5 @@
-be <- simulateBreeding(n_ind = 40, n_marker = 400, genotyped = 25, seed = 2)
+set.seed(1)
+be <- simulateBreeding(n_ind = 40, n_marker = 400, genotyped = 25)
 
 test_that("H spans the whole pedigree, not just the genotyped part", {
   H <- Hmatrix(be)
@@ -46,7 +47,7 @@ test_that("H needs a pedigree", {
 })
 
 test_that("when everyone is genotyped H reduces to the blended G", {
-  full <- simulateBreeding(n_ind = 20, n_marker = 200, seed = 5)
+  full <- simulateBreeding(n_ind = 20, n_marker = 200)
   H <- Hmatrix(full)
   expect_equal(nrow(H), 20L)
 })

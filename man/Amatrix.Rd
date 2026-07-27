@@ -33,7 +33,8 @@ of its parents' relationships to that individual, and its diagonal is
 \eqn{1 + \tfrac{1}{2}A_{sire,dam}}.
 }
 \examples{
-be <- simulateBreeding(n_ind = 12, n_marker = 30, seed = 1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 12, n_marker = 30)
 A <- Amatrix(be)
 round(A[1:5, 1:5], 3)
 }

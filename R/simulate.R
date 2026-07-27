@@ -9,6 +9,9 @@
 #' Set `genotyped` below `n_ind` to leave some individuals ungenotyped, which is
 #' the situation [Hmatrix()] is designed for.
 #'
+#' The function draws random numbers but does not set the seed itself. Call
+#' [set.seed()] beforehand if you need the same population twice.
+#'
 #' @param n_ind Number of individuals in total.
 #' @param n_marker Number of markers.
 #' @param n_founder Number of unrelated founders.
@@ -17,21 +20,18 @@
 #' @param n_qtl Number of markers with an effect on the trait.
 #' @param h2 Narrow-sense heritability of the simulated trait.
 #' @param missing Proportion of genotype calls set to `NA`.
-#' @param seed Optional seed, for reproducibility.
 #' @return A [BreedingExperiment-class] object with a `phenotype` column and the
 #'   true breeding value in `colData`.
 #' @examples
-#' be <- simulateBreeding(n_ind = 25, n_marker = 100, seed = 1)
+#' set.seed(1)
+#' set.seed(1)
+#' be <- simulateBreeding(n_ind = 25, n_marker = 100)
 #' be
 #' head(as.data.frame(colData(be)))
 #' @export
 simulateBreeding <- function(n_ind = 50, n_marker = 200, n_founder = 10,
                              genotyped = NULL, n_qtl = 20, h2 = 0.4,
-                             missing = 0, seed = NULL) {
-    ## `seed` is honoured through set.seed(), so results are reproducible; the
-    ## RNG state is not saved and restored, so nothing outside is altered
-    ## beyond the ordinary effect of drawing random numbers.
-    if (!is.null(seed)) set.seed(seed)
+                             missing = 0) {
     n_founder <- max(2L, min(as.integer(n_founder), n_ind))
     ids <- sprintf("ind%03d", seq_len(n_ind))
 

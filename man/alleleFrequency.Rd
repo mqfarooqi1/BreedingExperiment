@@ -23,6 +23,7 @@ Computes, for every marker, the frequency of the counted allele, the minor
 allele frequency, the call rate and the observed heterozygosity.
 }
 \examples{
-be <- simulateBreeding(n_ind = 30, n_marker = 50, seed = 1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 30, n_marker = 50)
 head(alleleFrequency(be))
 }

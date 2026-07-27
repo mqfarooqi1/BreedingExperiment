@@ -21,7 +21,7 @@ on everyone.}
 Simulated by \code{data-raw/make_demo.R} in the package sources.
 }
 \usage{
-demoBreeding
+data(demoBreeding)
 }
 \description{
 A small, five-generation breeding population supplied so that every function

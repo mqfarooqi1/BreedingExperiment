@@ -10,7 +10,8 @@
 #' @return `pedigree()` returns a [S4Vectors::DataFrame]; the replacement form
 #'   returns the updated object.
 #' @examples
-#' be <- simulateBreeding(n_ind = 8, n_marker = 20, seed = 1)
+#' set.seed(1)
+#' be <- simulateBreeding(n_ind = 8, n_marker = 20)
 #' head(pedigree(be))
 #' @name pedigree
 #' @aliases pedigree pedigree<-
@@ -39,7 +40,8 @@ setReplaceMethod("pedigree", "BreedingExperiment", function(x, value) {
 #' @return `genotypes()` returns a numeric matrix; the replacement form returns
 #'   the updated object.
 #' @examples
-#' be <- simulateBreeding(n_ind = 6, n_marker = 10, seed = 1)
+#' set.seed(1)
+#' be <- simulateBreeding(n_ind = 6, n_marker = 10)
 #' genotypes(be)[1:5, 1:4]
 #' @name genotypes
 #' @aliases genotypes genotypes<-
@@ -69,7 +71,8 @@ setReplaceMethod("genotypes", "BreedingExperiment", function(x, value) {
 #' @param ... Unused.
 #' @return A character vector of individual identifiers.
 #' @examples
-#' be <- simulateBreeding(n_ind = 8, n_marker = 20, seed = 1)
+#' set.seed(1)
+#' be <- simulateBreeding(n_ind = 8, n_marker = 20)
 #' genotyped(be)
 #' @name genotyped
 #' @aliases genotyped genotyped,BreedingExperiment-method
@@ -86,7 +89,8 @@ setMethod("genotyped", "BreedingExperiment", function(x, ...) colnames(x))
 #' @return A [S4Vectors::DataFrame] with one row per marker and columns `freq`,
 #'   `maf`, `callRate` and `heterozygosity`.
 #' @examples
-#' be <- simulateBreeding(n_ind = 30, n_marker = 50, seed = 1)
+#' set.seed(1)
+#' be <- simulateBreeding(n_ind = 30, n_marker = 50)
 #' head(alleleFrequency(be))
 #' @name alleleFrequency
 #' @aliases alleleFrequency alleleFrequency,BreedingExperiment-method

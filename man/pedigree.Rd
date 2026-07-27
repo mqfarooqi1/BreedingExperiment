@@ -32,6 +32,7 @@ pedigree may include ancestors that were never genotyped; those individuals
 are what allow \code{\link[=Hmatrix]{Hmatrix()}} to combine pedigree and genomic information.
 }
 \examples{
-be <- simulateBreeding(n_ind = 8, n_marker = 20, seed = 1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 8, n_marker = 20)
 head(pedigree(be))
 }

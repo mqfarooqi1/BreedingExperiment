@@ -34,7 +34,8 @@ sibs have an expected pedigree relationship of exactly 0.5, whereas their
 genomic relationship varies around it.
 }
 \examples{
-be <- simulateBreeding(n_ind = 20, n_marker = 200, seed = 1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 20, n_marker = 200)
 G <- Gmatrix(be)
 round(G[1:4, 1:4], 3)
 }

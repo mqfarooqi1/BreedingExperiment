@@ -36,7 +36,8 @@ that is not, which matters for crossbreeding and for predicting the
 performance of specific crosses.
 }
 \examples{
-be <- simulateBreeding(n_ind = 20, n_marker = 200, seed = 1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 20, n_marker = 200)
 D <- Dmatrix(be)
 round(D[1:4, 1:4], 3)
 }

@@ -1,4 +1,5 @@
-be <- simulateBreeding(n_ind = 30, n_marker = 300, seed = 1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 30, n_marker = 300)
 
 test_that("G is a valid relationship matrix", {
   G <- Gmatrix(be)
@@ -27,7 +28,7 @@ test_that("min_maf drops markers and still returns a valid matrix", {
 })
 
 test_that("missing genotypes are handled or refused as asked", {
-  bem <- simulateBreeding(n_ind = 20, n_marker = 100, missing = 0.05, seed = 2)
+  bem <- simulateBreeding(n_ind = 20, n_marker = 100, missing = 0.05)
   expect_true(all(is.finite(Gmatrix(bem, impute = TRUE))))
   expect_error(Gmatrix(bem, impute = FALSE), "missing")
 })

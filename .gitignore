@@ -2,3 +2,4 @@
 .RData
 *.tar.gz
 *.Rcheck/
+*.BiocCheck/

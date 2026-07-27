@@ -35,7 +35,8 @@ minor allele frequency threshold, those called in too few individuals, and
 optionally those that are monomorphic.
 }
 \examples{
-be <- simulateBreeding(n_ind = 30, n_marker = 100, missing = 0.05, seed = 1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 30, n_marker = 100, missing = 0.05)
 nrow(be)
 nrow(filterMarkers(be, min_maf = 0.05, min_call_rate = 0.9))
 }

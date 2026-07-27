@@ -1,3 +1,4 @@
+set.seed(1)
 ped3 <- data.frame(
   id   = c("A", "B", "C", "D", "E"),
   sire = c(NA,  NA,  "A", NA,  "C"),
@@ -25,7 +26,7 @@ test_that("full sibs are related by one half and their offspring is inbred", {
 })
 
 test_that("inbreeding() equals the diagonal of A minus one", {
-  be <- simulateBreeding(n_ind = 15, n_marker = 30, seed = 1)
+  be <- simulateBreeding(n_ind = 15, n_marker = 30)
   expect_equal(unname(inbreeding(be)), unname(diag(Amatrix(be)) - 1))
 })
 

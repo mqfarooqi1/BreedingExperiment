@@ -24,7 +24,8 @@ the low rates of missingness left after quality control; for anything more,
 impute with dedicated software before building the object.
 }
 \examples{
-be <- simulateBreeding(n_ind = 20, n_marker = 50, missing = 0.1, seed = 1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 20, n_marker = 50, missing = 0.1)
 anyNA(genotypes(be))
 anyNA(genotypes(imputeMarkers(be)))
 }

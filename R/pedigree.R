@@ -66,7 +66,8 @@ sortPedigree <- function(ped) {
 #'   values." Biometrics 32, 69-83. \doi{10.2307/2529339}
 #' @seealso [Gmatrix()], [Hmatrix()], [inbreeding()]
 #' @examples
-#' be <- simulateBreeding(n_ind = 12, n_marker = 30, seed = 1)
+#' set.seed(1)
+#' be <- simulateBreeding(n_ind = 12, n_marker = 30)
 #' A <- Amatrix(be)
 #' round(A[1:5, 1:5], 3)
 #' @name Amatrix
@@ -122,7 +123,8 @@ setMethod("Amatrix", "BreedingExperiment", function(x, ids = NULL, ...) {
 #' @return A named numeric vector of inbreeding coefficients.
 #' @seealso [Amatrix()]
 #' @examples
-#' be <- simulateBreeding(n_ind = 12, n_marker = 30, seed = 1)
+#' set.seed(1)
+#' be <- simulateBreeding(n_ind = 12, n_marker = 30)
 #' round(inbreeding(be), 4)
 #' @name inbreeding
 #' @aliases inbreeding inbreeding,BreedingExperiment-method

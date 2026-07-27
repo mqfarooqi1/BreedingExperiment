@@ -11,7 +11,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r opts, include = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
@@ -35,7 +35,7 @@ parts.
 The package ships with `demoBreeding`, a simulated five-generation population
 built to behave like a real programme rather than a textbook example.
 
-```{r}
+```{r demo-data}
 data(demoBreeding)
 be <- demoBreeding
 be
@@ -50,7 +50,7 @@ The data also carry the other awkward features of real records — a trait
 measured on one sex only, a little missing genotype data, and unequal family
 sizes because a few sires were used heavily.
 
-```{r}
+```{r demo-features}
 table(SummarizedExperiment::colData(be)$generation)
 summary(SummarizedExperiment::colData(be)$yield)   # females only
 ```
@@ -60,7 +60,7 @@ that.
 
 The standard accessors work:
 
-```{r}
+```{r accessors}
 dim(be)
 genotypes(be)[1:4, 1:5]
 head(SummarizedExperiment::colData(be), 3)
@@ -69,7 +69,7 @@ head(pedigree(be), 3)
 
 Because markers are genomic ranges, a data set can be cut down to a region:
 
-```{r}
+```{r subset-region}
 chr1 <- be[as.character(GenomicRanges::seqnames(
   SummarizedExperiment::rowRanges(be))) == "chr1", ]
 dim(chr1)
@@ -77,7 +77,7 @@ dim(chr1)
 
 Your own data goes in the same way:
 
-```{r, eval = FALSE}
+```{r your-data , eval = FALSE}
 be <- BreedingExperiment(
   genotypes  = dosage_matrix,          # markers x individuals, 0/1/2
   phenotypes = phenotype_data_frame,   # one row per individual
@@ -88,7 +88,7 @@ be <- BreedingExperiment(
 
 ## Quality control
 
-```{r}
+```{r qc}
 nrow(be)
 be <- filterMarkers(be, min_maf = 0.05, min_call_rate = 0.9)
 be <- imputeMarkers(be)
@@ -102,14 +102,14 @@ head(alleleFrequency(be), 3)
 familiar textbook values: one half between parent and offspring, one quarter
 between grandparent and grandchild.
 
-```{r}
+```{r amatrix}
 A <- Amatrix(be)
 round(A[1:5, 1:5], 3)
 ```
 
 The diagonal carries inbreeding:
 
-```{r}
+```{r inbreeding}
 summary(inbreeding(be))
 ```
 
@@ -120,14 +120,14 @@ happened rather than what was expected: two full sibs have a pedigree
 relationship of exactly 0.5, but their genomic relationship varies around it,
 because Mendelian sampling gave them different halves of their parents.
 
-```{r}
+```{r gmatrix}
 G <- Gmatrix(be)
 round(G[1:5, 1:5], 3)
 ```
 
 The two agree in the aggregate, which is a useful sanity check on any data set:
 
-```{r}
+```{r ag-agreement}
 gen <- colnames(be)
 A22 <- A[gen, gen]
 cor(A22[upper.tri(A22)], G[upper.tri(G)])
@@ -141,7 +141,7 @@ for models that separate the two.
 Using only `G` discards every ungenotyped relative. Using only `A` discards the
 markers. `Hmatrix()` keeps both, and covers every individual in the pedigree:
 
-```{r}
+```{r hmatrix}
 H <- Hmatrix(be, blend = 0.05)
 dim(H)
 length(attr(H, "genotyped"))
@@ -153,7 +153,7 @@ off-diagonal blocks connect them. Two checks confirm the behaviour: blending
 entirely towards the pedigree returns `A22`, and the result stays positive
 definite.
 
-```{r}
+```{r hmatrix-checks}
 H1 <- Hmatrix(be, blend = 1, tune = FALSE)
 max(abs(H1[gen, gen] - A22))
 min(eigen(H, only.values = TRUE)$values) > 0
@@ -164,6 +164,6 @@ it, or its inverse, to whichever mixed-model solver you prefer.
 
 ## Session information
 
-```{r}
+```{r session}
 sessionInfo()
 ```

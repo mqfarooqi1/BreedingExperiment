@@ -31,6 +31,7 @@ Gets or sets the matrix of allele dosages, a shorthand for the \code{genotype}
 assay. Markers are rows and individuals are columns.
 }
 \examples{
-be <- simulateBreeding(n_ind = 6, n_marker = 10, seed = 1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 6, n_marker = 10)
 genotypes(be)[1:5, 1:4]
 }

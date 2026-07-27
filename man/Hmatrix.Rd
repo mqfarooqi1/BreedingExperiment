@@ -56,7 +56,8 @@ markers are fewer than individuals.
 }
 \examples{
 # only some of the individuals are genotyped
-be <- simulateBreeding(n_ind = 30, n_marker = 300, genotyped = 20, seed = 1)
+set.seed(1)
+be <- simulateBreeding(n_ind = 30, n_marker = 300, genotyped = 20)
 H <- Hmatrix(be)
 dim(H)
 attr(H, "genotyped")

@@ -6,7 +6,7 @@
 #' @param object A [BreedingExperiment-class] object.
 #' @return `object`, invisibly. Called for the side effect of printing.
 #' @examples
-#' simulateBreeding(n_ind = 10, n_marker = 20, seed = 1)
+#' simulateBreeding(n_ind = 10, n_marker = 20)
 #' @export
 setMethod("show", "BreedingExperiment", function(object) {
     cat("class: BreedingExperiment\n")

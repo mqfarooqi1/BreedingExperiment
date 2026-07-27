@@ -12,7 +12,8 @@
 #' @return A [BreedingExperiment-class] object with fewer rows.
 #' @seealso [imputeMarkers()], [alleleFrequency()]
 #' @examples
-#' be <- simulateBreeding(n_ind = 30, n_marker = 100, missing = 0.05, seed = 1)
+#' set.seed(1)
+#' be <- simulateBreeding(n_ind = 30, n_marker = 100, missing = 0.05)
 #' nrow(be)
 #' nrow(filterMarkers(be, min_maf = 0.05, min_call_rate = 0.9))
 #' @name filterMarkers
@@ -48,7 +49,8 @@ setMethod("filterMarkers", "BreedingExperiment",
 #' @return A [BreedingExperiment-class] object with no missing genotypes.
 #' @seealso [filterMarkers()]
 #' @examples
-#' be <- simulateBreeding(n_ind = 20, n_marker = 50, missing = 0.1, seed = 1)
+#' set.seed(1)
+#' be <- simulateBreeding(n_ind = 20, n_marker = 50, missing = 0.1)
 #' anyNA(genotypes(be))
 #' anyNA(genotypes(imputeMarkers(be)))
 #' @name imputeMarkers
