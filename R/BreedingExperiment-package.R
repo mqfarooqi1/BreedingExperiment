@@ -22,5 +22,20 @@
 #' out, and [filterMarkers()] and [imputeMarkers()] cover routine quality
 #' control.
 #'
+#' @section Provenance:
+#' A substantial part of this package was written with the assistance of an AI
+#' coding assistant (`Assisted-by: Claude, Anthropic`). The author defined the
+#' scope, chose the statistical methods, and reviewed, tested and validated the
+#' result, and is responsible for the correctness and maintenance of the code.
+#'
+#' Every method implemented here is an established, published technique in
+#' quantitative genetics, cited in the documentation of the function that
+#' implements it. The relationship matrices are checked in the test suite
+#' against values that follow from theory rather than from a previous run: a
+#' parent-offspring relationship of one half, a grandparent relationship of one
+#' quarter, full sibs related by one half, the offspring of a full-sib mating
+#' inbred at \eqn{F = 0.25}, a positive definite \eqn{H}, and
+#' `Hmatrix(blend = 1)` reproducing \eqn{A_{22}} exactly.
+#'
 #' @keywords internal
 "_PACKAGE"

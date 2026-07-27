@@ -1,3 +1,7 @@
+## Assisted-by: Claude (Anthropic). Written with AI assistance under the
+## author's direction; methods are established techniques cited in the
+## documentation, and the results are validated in tests/testthat.
+
 #' Filter markers on quality
 #'
 #' Removes markers that are uninformative or poorly genotyped: those below a
