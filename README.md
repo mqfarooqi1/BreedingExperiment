@@ -1,10 +1,22 @@
-# BreedingExperiment
+# BreedingExperiment <a href="https://mqfarooqi1.github.io/BreedingExperiment/"><img src="man/figures/logo.png" align="right" height="139" alt="BreedingExperiment website" /></a>
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/mqfarooqi1/BreedingExperiment/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mqfarooqi1/BreedingExperiment/actions/workflows/R-CMD-check.yaml)
+[![R-universe](https://mqfarooqi1.r-universe.dev/badges/BreedingExperiment)](https://mqfarooqi1.r-universe.dev/BreedingExperiment)
+[![Documentation](https://img.shields.io/badge/docs-pkgdown-2F9E68.svg)](https://mqfarooqi1.github.io/BreedingExperiment/)
+[![Bioconductor](https://img.shields.io/badge/Bioconductor-under%20review-orange.svg)](https://github.com/Bioconductor/BiocContributions/issues/117)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
+
+<!--
+Bioconductor badges: add these once the package is accepted. Until then the
+shields return 404, because Bioconductor has nothing to report yet.
+
+[![Bioc downloads](https://bioconductor.org/shields/downloads/release/BreedingExperiment.svg)](https://bioconductor.org/packages/stats/bioc/BreedingExperiment/)
+[![Bioc build](https://bioconductor.org/shields/build/release/bioc/BreedingExperiment.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/BreedingExperiment/)
+[![Years in Bioc](https://bioconductor.org/shields/years-in-bioc/BreedingExperiment.svg)](https://bioconductor.org/packages/release/bioc/html/BreedingExperiment.html)
+-->
 
 **Bioconductor-style infrastructure for breeding and quantitative genomics:
 genotypes, phenotypes, pedigree and marker coordinates in one object, with the
@@ -32,11 +44,25 @@ extends `RangedSummarizedExperiment`, so:
 
 ## Installation
 
+From [R-universe](https://mqfarooqi1.r-universe.dev/BreedingExperiment):
+
+```r
+install.packages("BreedingExperiment",
+                 repos = c("https://mqfarooqi1.r-universe.dev",
+                           "https://bioconductor.org/packages/release/bioc",
+                           "https://cloud.r-project.org"))
+```
+
+Or from GitHub:
+
 ```r
 # install.packages("BiocManager")
 BiocManager::install("SummarizedExperiment")
 remotes::install_github("mqfarooqi1/BreedingExperiment")
 ```
+
+The package is [under review for Bioconductor](https://github.com/Bioconductor/BiocContributions/issues/117);
+once accepted it will install with `BiocManager::install("BreedingExperiment")`.
 
 ## Use
 

@@ -2,15 +2,8 @@
 ## author's direction; methods are established techniques cited in the
 ## documentation, and the results are validated in tests/testthat.
 
-#' Display a breeding experiment
-#'
-#' Prints the size of the object, the assays it holds, the phenotype columns
-#' and a summary of the pedigree, including how many individuals are genotyped.
-#'
 #' @param object A [BreedingExperiment-class] object.
-#' @return `object`, invisibly. Called for the side effect of printing.
-#' @examples
-#' simulateBreeding(n_ind = 10, n_marker = 20)
+#' @rdname BreedingExperiment-class
 #' @export
 setMethod("show", "BreedingExperiment", function(object) {
     cat("class: BreedingExperiment\n")

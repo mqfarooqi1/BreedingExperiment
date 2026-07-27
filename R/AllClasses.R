@@ -43,6 +43,15 @@ NULL
 #' @section Construction:
 #' Use [BreedingExperiment()]; see its help page for examples.
 #'
+#' @section Display:
+#' The `show` method prints the size of the object, the assays it holds, the
+#' phenotype columns, the sequences the markers lie on, and a summary of the
+#' pedigree including how many individuals are genotyped.
+#'
+#' @examples
+#' data(demoBreeding)
+#' demoBreeding
+#'
 #' @seealso [BreedingExperiment()], [Amatrix()], [Gmatrix()], [Hmatrix()]
 #' @name BreedingExperiment-class
 #' @aliases BreedingExperiment-class

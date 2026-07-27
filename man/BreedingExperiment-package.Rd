@@ -49,6 +49,7 @@ inbred at \eqn{F = 0.25}, a positive definite \eqn{H}, and
 Useful links:
 \itemize{
   \item \url{https://github.com/mqfarooqi1/BreedingExperiment}
+  \item \url{https://mqfarooqi1.github.io/BreedingExperiment/}
   \item Report bugs at \url{https://github.com/mqfarooqi1/BreedingExperiment/issues}
 }
 

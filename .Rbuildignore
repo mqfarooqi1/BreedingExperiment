@@ -8,3 +8,6 @@
 ^data-raw$
 ^.*\.BiocCheck$
 ^.*\.Rcheck$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

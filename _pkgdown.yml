@@ -1,0 +1,57 @@
+url: https://mqfarooqi1.github.io/BreedingExperiment/
+
+template:
+  bootstrap: 5
+  light-switch: true
+  bslib:
+    primary: "#2F9E68"
+    base_font: {google: "Inter"}
+    heading_font: {google: "Inter"}
+    code_font: {google: "Source Code Pro"}
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, news]
+    right: [search, lightswitch, github]
+
+reference:
+- title: "The container"
+  desc: >
+    A class that keeps genotypes, phenotypes, pedigree and marker coordinates
+    together, extending RangedSummarizedExperiment.
+  contents:
+  - BreedingExperiment-class
+  - BreedingExperiment
+
+- title: "Relationship matrices"
+  desc: >
+    The matrices quantitative genetics runs on, from the pedigree, from the
+    markers, or from both at once.
+  contents:
+  - Amatrix
+  - Gmatrix
+  - Dmatrix
+  - Hmatrix
+  - inbreeding
+
+- title: "Accessors"
+  contents:
+  - pedigree
+  - genotypes
+  - genotyped
+  - alleleFrequency
+
+- title: "Quality control"
+  contents:
+  - filterMarkers
+  - imputeMarkers
+  - sortPedigree
+
+- title: "Data and simulation"
+  contents:
+  - demoBreeding
+  - simulateBreeding
+
+- title: "Package"
+  contents:
+  - BreedingExperiment-package

@@ -46,7 +46,8 @@ biocViews: Software, Genetics, SNP, GenomicVariation, DataRepresentation,
 Note: Assisted-by: Claude (Anthropic). Substantial parts of this package
         were written with AI assistance under the author's direction; see
         the Provenance section of ?`BreedingExperiment-package`.
-URL: https://github.com/mqfarooqi1/BreedingExperiment
+URL: https://github.com/mqfarooqi1/BreedingExperiment,
+        https://mqfarooqi1.github.io/BreedingExperiment/
 BugReports: https://github.com/mqfarooqi1/BreedingExperiment/issues
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
