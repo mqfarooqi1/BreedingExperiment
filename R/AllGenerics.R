@@ -20,7 +20,8 @@ setGeneric("genotypes<-", function(x, value) standardGeneric("genotypes<-"))
 
 #' @rdname alleleFrequency
 #' @export
-setGeneric("alleleFrequency", function(x, ...) standardGeneric("alleleFrequency"))
+setGeneric("alleleFrequency",
+           function(x, ...) standardGeneric("alleleFrequency"))
 
 #' @rdname Amatrix
 #' @export

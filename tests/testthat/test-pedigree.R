@@ -3,7 +3,8 @@ ped3 <- data.frame(
   id   = c("A", "B", "C", "D", "E"),
   sire = c(NA,  NA,  "A", NA,  "C"),
   dam  = c(NA,  NA,  "B", NA,  "D"))
-g3 <- matrix(1, 10, 5, dimnames = list(paste0("m", 1:10), c("A","B","C","D","E")))
+g3 <- matrix(1, 10, 5,
+             dimnames = list(paste0("m", 1:10), c("A", "B", "C", "D", "E")))
 be3 <- BreedingExperiment(g3, pedigree = ped3)
 
 test_that("A matrix reproduces textbook relationships", {

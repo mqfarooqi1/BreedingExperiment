@@ -22,7 +22,8 @@
 #' Writing 1 for ungenotyped and 2 for genotyped individuals,
 #' \deqn{H_{22} = G^{*}}
 #' \deqn{H_{12} = A_{12} A_{22}^{-1} G^{*}}
-#' \deqn{H_{11} = A_{11} + A_{12} A_{22}^{-1} (G^{*} - A_{22}) A_{22}^{-1} A_{21}}
+#' \deqn{H_{11} = A_{11} + A_{12} A_{22}^{-1}
+#'        (G^{*} - A_{22}) A_{22}^{-1} A_{21}}
 #'
 #' Because \eqn{G} and \eqn{A_{22}} are estimated on different scales, \eqn{G}
 #' is first made compatible with \eqn{A_{22}} in two standard steps. *Tuning*
@@ -104,7 +105,8 @@ setMethod("Hmatrix", "BreedingExperiment",
     H12 <- P %*% Gs
     H <- rbind(cbind(H11, H12), cbind(t(H12), Gs))
     dimnames(H) <- list(c(ung, gen), c(ung, gen))
-    H <- (H + t(H)) / 2                      # remove any asymmetry from rounding
+    ## remove any asymmetry introduced by rounding
+    H <- (H + t(H)) / 2
     attr(H, "genotyped") <- gen
     H
 })

@@ -1,3 +1,8 @@
+# BreedingExperiment 0.99.2
+
+* Split `simulateBreeding()` into helpers so no function exceeds the recommended length.
+* Wrapped over-long source lines and added the `QualityControl` biocView.
+
 # BreedingExperiment 0.99.1
 
 * Removed a non-standard field from `DESCRIPTION`.

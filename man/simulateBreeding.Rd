@@ -50,7 +50,6 @@ The function draws random numbers but does not set the seed itself. Call
 }
 \examples{
 set.seed(1)
-set.seed(1)
 be <- simulateBreeding(n_ind = 25, n_marker = 100)
 be
 head(as.data.frame(colData(be)))
