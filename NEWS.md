@@ -1,3 +1,9 @@
+# BreedingExperiment 0.99.4
+
+* Documented the return value on the class page, clearing the BiocCheck
+  warning about a missing `alue` section.
+* Wrapped the last over-long source line.
+
 # BreedingExperiment 0.99.3
 
 * Version bump only, to re-run the Bioconductor checks after a transient

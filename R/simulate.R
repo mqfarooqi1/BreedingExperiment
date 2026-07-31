@@ -89,7 +89,8 @@ simulateBreeding <- function(n_ind = 50, n_marker = 200, n_founder = 10,
                                stringsAsFactors = FALSE))
 }
 
-## A trait controlled by a handful of markers, scaled to the target heritability.
+## A trait controlled by a handful of markers, scaled to the target
+## heritability.
 #' @keywords internal
 #' @noRd
 .simulate_trait <- function(geno, n_qtl, h2) {

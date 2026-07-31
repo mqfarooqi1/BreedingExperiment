@@ -48,6 +48,12 @@ NULL
 #' phenotype columns, the sequences the markers lie on, and a summary of the
 #' pedigree including how many individuals are genotyped.
 #'
+#' @return
+#' A class definition, so nothing is returned by the class itself. The
+#' constructor [BreedingExperiment()] returns a `BreedingExperiment` object,
+#' and the `show` method is called for the summary it prints, returning
+#' `object` invisibly.
+#'
 #' @examples
 #' data(demoBreeding)
 #' demoBreeding

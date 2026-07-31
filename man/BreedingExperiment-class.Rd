@@ -11,6 +11,12 @@
 \arguments{
 \item{object}{A \link[=BreedingExperiment-class]{BreedingExperiment} object.}
 }
+\value{
+A class definition, so nothing is returned by the class itself. The
+constructor \code{\link[=BreedingExperiment]{BreedingExperiment()}} returns a \code{BreedingExperiment} object,
+and the \code{show} method is called for the summary it prints, returning
+\code{object} invisibly.
+}
 \description{
 A \code{BreedingExperiment} keeps everything a quantitative-genetic analysis needs
 in one object: marker genotypes, the phenotypes and design variables of the

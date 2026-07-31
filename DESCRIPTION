@@ -1,7 +1,7 @@
 Package: BreedingExperiment
 Title: Container and Relationship Matrices for Breeding and Quantitative
         Genomics
-Version: 0.99.3
+Version: 0.99.4
 Authors@R:
     person("Muhammad", "Farooqi", email = "mqfarooqi@gmail.com",
            role = c("aut", "cre"),
