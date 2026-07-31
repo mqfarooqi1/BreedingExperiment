@@ -18,6 +18,14 @@ show(object)
 
   A BreedingExperiment object.
 
+## Value
+
+A class definition, so nothing is returned by the class itself. The
+constructor
+[`BreedingExperiment()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/BreedingExperiment.md)
+returns a `BreedingExperiment` object, and the `show` method is called
+for the summary it prints, returning `object` invisibly.
+
 ## Details
 
 The class extends
