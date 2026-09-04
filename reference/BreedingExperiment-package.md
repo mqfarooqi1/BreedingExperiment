@@ -37,13 +37,7 @@ and
 [`imputeMarkers()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/imputeMarkers.md)
 cover routine quality control.
 
-## Provenance
-
-A substantial part of this package was written with the assistance of an
-AI coding assistant (`Assisted-by: Claude, Anthropic`). The author
-defined the scope, chose the statistical methods, and reviewed, tested
-and validated the result, and is responsible for the correctness and
-maintenance of the code.
+## Correctness
 
 Every method implemented here is an established, published technique in
 quantitative genetics, cited in the documentation of the function that

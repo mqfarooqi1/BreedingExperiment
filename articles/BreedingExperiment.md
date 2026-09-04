@@ -73,8 +73,6 @@ library(BreedingExperiment)
 #> The following objects are masked from 'package:matrixStats':
 #> 
 #>     anyMissing, rowMedians
-#> Warning: replacing previous import 'S4Arrays::makeNindexFromArrayViewport' by
-#> 'DelayedArray::makeNindexFromArrayViewport' when loading 'SummarizedExperiment'
 ```
 
 A quantitative-genetic analysis needs four things at once: the marker
@@ -331,7 +329,7 @@ sessionInfo()
 #>  [1] BreedingExperiment_0.99.4   SummarizedExperiment_1.42.0
 #>  [3] Biobase_2.72.0              GenomicRanges_1.64.0       
 #>  [5] Seqinfo_1.2.0               IRanges_2.46.0             
-#>  [7] S4Vectors_0.50.1            BiocGenerics_0.58.1        
+#>  [7] S4Vectors_0.50.2            BiocGenerics_0.58.1        
 #>  [9] generics_0.1.4              MatrixGenerics_1.24.0      
 #> [11] matrixStats_1.5.0           BiocStyle_2.40.0           
 #> 
@@ -341,11 +339,11 @@ sessionInfo()
 #>  [7] textshaping_1.0.5   yaml_2.3.12         fastmap_1.2.0      
 #> [10] lattice_0.22-9      XVector_0.52.0      R6_2.6.1           
 #> [13] S4Arrays_1.12.0     knitr_1.51          DelayedArray_0.38.2
-#> [16] bookdown_0.47       desc_1.4.3          bslib_0.11.0       
+#> [16] bookdown_0.48       desc_1.4.3          bslib_0.12.0       
 #> [19] rlang_1.3.0         cachem_1.1.0        xfun_0.60          
 #> [22] fs_2.1.0            sass_0.4.10         otel_0.2.0         
 #> [25] SparseArray_1.12.2  cli_3.6.6           pkgdown_2.2.1      
 #> [28] digest_0.6.39       grid_4.6.1          lifecycle_1.0.5    
 #> [31] evaluate_1.0.5      ragg_1.5.2          abind_1.4-8        
-#> [34] rmarkdown_2.31      tools_4.6.1         htmltools_0.5.9
+#> [34] rmarkdown_2.32      tools_4.6.1         htmltools_0.5.9
 ```
