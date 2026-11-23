@@ -32,7 +32,8 @@ simulateBreeding(
 
 - n_founder:
 
-  Number of unrelated founders.
+  Number of unrelated founders. Capped at `n_ind`; at least two are
+  needed if there are to be any offspring.
 
 - genotyped:
 
@@ -45,11 +46,11 @@ simulateBreeding(
 
 - h2:
 
-  Narrow-sense heritability of the simulated trait.
+  Narrow-sense heritability of the simulated trait, between 0 and 1.
 
 - missing:
 
-  Proportion of genotype calls set to `NA`.
+  Proportion of genotype calls set to `NA`, between 0 and 1.
 
 ## Value
 
@@ -63,11 +64,27 @@ object with a `phenotype` column and the true breeding value in
 Set `genotyped` below `n_ind` to leave some individuals ungenotyped,
 which is the situation
 [`Hmatrix()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/Hmatrix.md)
-is designed for.
+is designed for. The genotyped individuals are the most recent ones, so
+the ungenotyped are the earlier generations, as in a programme that
+began genotyping part way through.
+
+Note that `n_founder` defaults to 10 and is capped at `n_ind`, so a call
+such as `simulateBreeding(n_ind = 8)` returns eight unrelated founders
+and no pedigree structure at all. Ask for more individuals than founders
+to get relatives.
+
+The trait is scaled so that the genetic variance is `h2` and the
+residual variance is `1 - h2`, and `trueBV` in the column data is the
+genetic component on that scale.
 
 The function draws random numbers but does not set the seed itself. Call
 [`set.seed()`](https://rdrr.io/r/base/Random.html) beforehand if you
 need the same population twice.
+
+## See also
+
+[`BreedingExperiment()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/BreedingExperiment.md),
+[`Hmatrix()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/Hmatrix.md)
 
 ## Examples
 
@@ -83,10 +100,17 @@ be
 #> pedigree: 25 individuals (25 genotyped, 0 not; 10 founders)
 head(as.data.frame(colData(be)))
 #>          phenotype     trueBV
-#> ind001  0.04962359  0.8492997
-#> ind002  2.09499329 -0.4066208
-#> ind003 -0.69175387 -0.4045620
-#> ind004 -1.27278074 -0.1810128
-#> ind005 -1.83665981 -0.1741050
-#> ind006 -1.12827745 -0.4129922
+#> ind001  0.03138471  0.5371443
+#> ind002  1.32499010 -0.2571695
+#> ind003 -0.43750356 -0.2558675
+#> ind004 -0.80497722 -0.1144826
+#> ind005 -1.16160565 -0.1101137
+#> ind006 -0.71358531 -0.2611992
+
+# a population where only the recent individuals were genotyped
+part <- simulateBreeding(n_ind = 30, n_marker = 100, n_founder = 6,
+                         genotyped = 20)
+c(pedigree = nrow(pedigree(part)), genotyped = ncol(part))
+#>  pedigree genotyped 
+#>        30        20 
 ```

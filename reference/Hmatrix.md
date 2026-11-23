@@ -44,7 +44,9 @@ Hmatrix(x, blend = 0.05, tune = TRUE, min_maf = 0, impute = TRUE, ...)
 
 A symmetric numeric matrix over every individual in the pedigree,
 ungenotyped individuals first, with an attribute `genotyped` giving the
-identifiers of the genotyped group.
+identifiers of the genotyped group. Genotyped individuals that are
+absent from the pedigree cannot be placed in \\H\\ and are dropped with
+a warning.
 
 ## Details
 
@@ -67,6 +69,24 @@ is first made compatible with \\A\_{22}\\ in two standard steps.
 match those of \\A\_{22}\\. *Blending* then mixes in a small share of
 \\A\_{22}\\, \\G^{\*} = (1-w)G + wA\_{22}\\, which also makes the result
 invertible when markers are fewer than individuals.
+
+## Choosing blend and tune
+
+Leave `tune = TRUE` unless you have already put \\G\\ on the scale of
+\\A\_{22}\\ yourself. Untuned, the two matrices usually disagree about
+the average level of relationship, and that disagreement is passed
+straight into the ungenotyped block, where it shows up as breeding
+values that are biased between the genotyped and ungenotyped groups.
+
+`blend` has two jobs. A small weight on \\A\_{22}\\ makes \\G^{\*}\\
+invertible, which matters whenever there are fewer markers than
+genotyped individuals, and it pulls the markers back towards the
+pedigree where the marker estimate is noisy. Values between 0.01 and
+0.10 are usual and 0.05 is a reasonable default; 0.05 to 0.10 suits a
+small marker panel, and 0.01 to 0.02 a dense one on many individuals.
+`blend = 0` keeps \\G\\ as it is and will fail if \\G\\ is singular.
+`blend = 1` discards the markers altogether and returns the pedigree
+matrix, which is useful only as the check shown in the examples.
 
 ## References
 

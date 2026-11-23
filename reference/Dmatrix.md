@@ -34,8 +34,8 @@ Dmatrix(x, min_maf = 0, impute = TRUE, ...)
 
 - impute:
 
-  Replace missing dosages by twice the allele frequency before
-  computing. If `FALSE`, missing values raise an error.
+  Allow missing dosages, giving them a dominance contribution of zero.
+  If `FALSE`, missing values raise an error.
 
 ## Value
 
@@ -47,6 +47,19 @@ Fitting additive and dominance effects together lets a model separate
 the part of the genetic variance that is inherited predictably from the
 part that is not, which matters for crossbreeding and for predicting the
 performance of specific crosses.
+
+## Dosages that are not whole numbers
+
+Vitezica and others code the genotypes AA, Aa and aa as \\-2q^2\\,
+\\2pq\\ and \\-2p^2\\. Those three values lie on a single quadratic in
+the dosage \\g\\, \$\$-g^2 + (2p + 1)g - 2p^2,\$\$ which is what this
+function evaluates. At dosages 2, 1 and 0 it returns the three published
+values exactly, and an expected dosage from imputation falls between
+them rather than being forced into one genotype class.
+
+A missing call is given a dominance contribution of zero, which is the
+weight that mean imputation already gives it in
+[`Gmatrix()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/Gmatrix.md).
 
 ## References
 

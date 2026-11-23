@@ -49,6 +49,19 @@ A
 [BreedingExperiment](https://mqfarooqi1.github.io/BreedingExperiment/reference/BreedingExperiment-class.md)
 object with fewer rows.
 
+## Choosing the thresholds
+
+`min_maf` and `min_call_rate` are judgement calls, not constants of
+nature. Common starting points are a minor allele frequency of 0.01 to
+0.05 and a call rate of 0.90 to 0.95. Raise `min_maf` when the panel is
+large and the sample small, because a rare allele seen in one or two
+individuals carries almost no information about relationships but still
+adds noise; lower it when rare variants are the point of the study. Run
+this before
+[`imputeMarkers()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/imputeMarkers.md),
+so that imputation is not asked to rescue markers that should simply be
+discarded.
+
 ## See also
 
 [`imputeMarkers()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/imputeMarkers.md),

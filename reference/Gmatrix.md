@@ -32,7 +32,8 @@ Gmatrix(x, min_maf = 0, impute = TRUE, ...)
 - impute:
 
   Replace missing dosages by twice the allele frequency before
-  computing. If `FALSE`, missing values raise an error.
+  computing, which gives a missing call no weight in the result. If
+  `FALSE`, missing values raise an error.
 
 ## Value
 

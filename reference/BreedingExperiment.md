@@ -71,6 +71,17 @@ individuals are exactly what
 [`Hmatrix()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/Hmatrix.md)
 needs in order to combine pedigree and genomic information.
 
+## How phenotypes are matched to individuals
+
+If `phenotypes` has row names, they are treated as individual
+identifiers: they must be the same set as the column names of
+`genotypes`, and the rows are reordered to match. If it has no row
+names, or only the automatic `1, 2, 3, ...` of a freshly built data
+frame, the rows are taken in the order given. Row names that are neither
+absent nor matching are an error rather than something to be
+overwritten, because the one thing worse than refusing a phenotype table
+is silently attaching each phenotype to the wrong individual.
+
 ## See also
 
 [`Gmatrix()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/Gmatrix.md),
@@ -95,4 +106,11 @@ be
 #> pedigree: none
 dim(be)
 #> [1] 40 12
+
+# phenotypes given in a different order are matched by row name
+shuffled <- data.frame(yield = rnorm(12),
+                       row.names = rev(colnames(geno)))
+identical(colnames(BreedingExperiment(geno, phenotypes = shuffled)),
+          colnames(geno))
+#> [1] TRUE
 ```
