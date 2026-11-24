@@ -5,13 +5,19 @@
 [![R-CMD-check](https://github.com/mqfarooqi1/BreedingExperiment/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mqfarooqi1/BreedingExperiment/actions/workflows/R-CMD-check.yaml)
 [![R-universe](https://mqfarooqi1.r-universe.dev/badges/BreedingExperiment)](https://mqfarooqi1.r-universe.dev/BreedingExperiment)
 [![Documentation](https://img.shields.io/badge/docs-pkgdown-2F9E68.svg)](https://mqfarooqi1.github.io/BreedingExperiment/)
-[![Bioconductor](https://img.shields.io/badge/Bioconductor-under%20review-orange.svg)](https://github.com/Bioconductor/BiocContributions/issues/117)
+[![Bioconductor](https://img.shields.io/badge/Bioconductor-accepted-brightgreen.svg)](https://bioconductor.org/packages/3.25/bioc/html/BreedingExperiment.html)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
 
 <!--
-Bioconductor badges: add these once the package is accepted. Until then the
-shields return 404, because Bioconductor has nothing to report yet.
+Accepted to Bioconductor on 2026-11-23, right at the 3.24 release cut:
+RELEASE_3_24 carries 1.0.0 and devel carries 1.1.0.
+
+These shields, the short URL https://bioconductor.org/packages/BreedingExperiment/
+and the DOI https://doi.org/10.18129/B9.bioc.BreedingExperiment all still 404
+or land on the removed-packages page, because they resolve against the
+published release and 3.24 is not live yet. Switch the badge above to the
+short URL and uncomment these once it is.
 
 [![Bioc downloads](https://bioconductor.org/shields/downloads/release/BreedingExperiment.svg)](https://bioconductor.org/packages/stats/bioc/BreedingExperiment/)
 [![Bioc build](https://bioconductor.org/shields/build/release/bioc/BreedingExperiment.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/BreedingExperiment/)
