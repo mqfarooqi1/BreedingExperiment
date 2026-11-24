@@ -204,3 +204,30 @@ test_that("h2 fixes the genetic and residual variances", {
     cd1 <- SummarizedExperiment::colData(b1)
     expect_equal(cd1$phenotype, cd1$trueBV)
 })
+
+test_that("Dmatrix does not depend on whether imputeMarkers() has been run", {
+    ## An imputed cell holds twice the allele frequency, and the dominance
+    ## coding returns exactly 2pq there - the heterozygote value - so without
+    ## consulting the imputed assay the matrix would shift when a data set was
+    ## imputed. Raised in Bioconductor review of 0.99.5.
+    set.seed(42)
+    be <- simulateBreeding(n_ind = 60, n_marker = 400, missing = 0.05)
+    expect_equal(Dmatrix(be), Dmatrix(imputeMarkers(be)))
+
+    ## and the same for the additive matrix, which has always behaved this way
+    expect_equal(Gmatrix(be), Gmatrix(imputeMarkers(be)))
+
+    ## the algebraic reason, stated so the test documents itself
+    p <- 0.3
+    code <- function(g) -g^2 + (2 * p + 1) * g - 2 * p^2
+    expect_equal(code(2 * p), 2 * p * (1 - p))
+
+    ## heavier missingness must not drift either
+    set.seed(43)
+    be2 <- simulateBreeding(n_ind = 40, n_marker = 300, missing = 0.2)
+    expect_equal(Dmatrix(be2), Dmatrix(imputeMarkers(be2)))
+
+    ## imputing twice is still the same answer
+    expect_equal(Dmatrix(imputeMarkers(be2)),
+                 Dmatrix(imputeMarkers(imputeMarkers(be2))))
+})
