@@ -15,7 +15,7 @@ returned by Gmatrix()."><meta property="og:image" content="https://mqfarooqi1.gi
 
     <a class="navbar-brand me-2" href="../index.html">BreedingExperiment</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -107,7 +107,13 @@ which is what this function evaluates. At dosages 2, 1 and 0 it returns the
 three published values exactly, and an expected dosage from imputation
 falls between them rather than being forced into one genotype class.</p>
 <p>A missing call is given a dominance contribution of zero, which is the
-weight that mean imputation already gives it in <code><a href="Gmatrix.html">Gmatrix()</a></code>.</p>
+weight that mean imputation already gives it in <code><a href="Gmatrix.html">Gmatrix()</a></code>. A cell that
+<code><a href="imputeMarkers.html">imputeMarkers()</a></code> has filled is treated the same way, because an expected
+dosage is not a genotype: at a dosage of \(2p\) the quadratic returns
+exactly \(2pq\), so counting it would record every imputed cell as a
+heterozygote. The result is therefore the same whether or not
+<code><a href="imputeMarkers.html">imputeMarkers()</a></code> has been run, provided the object carries the <code>imputed</code>
+assay that records which cells were filled.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>

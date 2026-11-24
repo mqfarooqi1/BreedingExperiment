@@ -1,6 +1,23 @@
 # Changelog
 
-## BreedingExperiment 0.99.5
+## BreedingExperiment 0.99.6
+
+### Bug fixes
+
+- [`Dmatrix()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/Dmatrix.md)
+  no longer changes when
+  [`imputeMarkers()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/imputeMarkers.md)
+  has been run first. The dominance coding returns exactly `2pq` at a
+  dosage of `2p`, which is the heterozygote value, so a mean-imputed
+  cell was being counted as an observed heterozygote while a
+  still-missing call correctly contributed zero. On a data set with 5%
+  missing genotypes this shifted entries by up to 0.08 and raised the
+  mean diagonal from 0.91 to 0.96. Cells recorded in the `imputed` assay
+  now get the same zero contribution as a missing call, so the matrix is
+  identical either way. Raised in the Bioconductor review of 0.99.5;
+  [`Gmatrix()`](https://mqfarooqi1.github.io/BreedingExperiment/reference/Gmatrix.md)
+  was never affected, because mean imputation already centres an imputed
+  cell to zero there. \# BreedingExperiment 0.99.5
 
 Changes made in response to the Bioconductor review
 ([\#117](https://github.com/Bioconductor/BiocContributions/issues/117)).

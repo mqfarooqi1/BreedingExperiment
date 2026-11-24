@@ -109,6 +109,8 @@ BiocManager::install("mqfarooqi1/BreedingExperiment")
 ``` r
 
 library(BreedingExperiment)
+#> Warning: replacing previous import 'S4Arrays::makeNindexFromArrayViewport' by
+#> 'DelayedArray::makeNindexFromArrayViewport' when loading 'SummarizedExperiment'
 ```
 
 ## The demonstration data
@@ -383,10 +385,10 @@ models that separate the two:
 D <- Dmatrix(be)
 round(D[1:4, 1:4], 3)
 #>        C0001  C0002  C0003  C0004
-#> C0001  0.982 -0.024 -0.059 -0.066
-#> C0002 -0.024  1.148 -0.094  0.025
-#> C0003 -0.059 -0.094  1.138  0.004
-#> C0004 -0.066  0.025  0.004  0.972
+#> C0001  0.977 -0.018 -0.054 -0.065
+#> C0002 -0.018  1.136 -0.081  0.027
+#> C0003 -0.054 -0.081  1.126 -0.001
+#> C0004 -0.065  0.027 -0.001  0.958
 ```
 
 ## Combining both: the single-step matrix
@@ -590,7 +592,7 @@ sessionInfo()
 #> [8] base     
 #> 
 #> other attached packages:
-#>  [1] BreedingExperiment_0.99.5   SummarizedExperiment_1.42.0
+#>  [1] BreedingExperiment_0.99.6   SummarizedExperiment_1.42.0
 #>  [3] Biobase_2.72.0              GenomicRanges_1.64.0       
 #>  [5] Seqinfo_1.2.0               IRanges_2.46.0             
 #>  [7] S4Vectors_0.50.3            BiocGenerics_0.58.1        
