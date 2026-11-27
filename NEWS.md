@@ -1,4 +1,7 @@
-# BreedingExperiment 0.99.6
+# BreedingExperiment 1.1.1
+
+The same fix is released as 1.0.1 on the RELEASE_3_24 branch. It was prepared
+as 0.99.6 before acceptance, which Bioconductor's release cut superseded.
 
 ## Bug fixes
 
