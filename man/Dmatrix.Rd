@@ -46,7 +46,13 @@ three published values exactly, and an expected dosage from imputation
 falls between them rather than being forced into one genotype class.
 
 A missing call is given a dominance contribution of zero, which is the
-weight that mean imputation already gives it in \code{\link[=Gmatrix]{Gmatrix()}}.
+weight that mean imputation already gives it in \code{\link[=Gmatrix]{Gmatrix()}}. A cell that
+\code{\link[=imputeMarkers]{imputeMarkers()}} has filled is treated the same way, because an expected
+dosage is not a genotype: at a dosage of \eqn{2p} the quadratic returns
+exactly \eqn{2pq}, so counting it would record every imputed cell as a
+heterozygote. The result is therefore the same whether or not
+\code{\link[=imputeMarkers]{imputeMarkers()}} has been run, provided the object carries the \code{imputed}
+assay that records which cells were filled.
 }
 
 \examples{

@@ -1,3 +1,21 @@
+# BreedingExperiment 1.0.1
+
+A bug fix backported to the release branch. The same fix is in 1.1.1 on
+devel. Dominance relationships computed on an imputed data set change:
+that is the point of the fix, and values from 1.0.0 should be recomputed.
+
+## Bug fixes
+
+* `Dmatrix()` no longer changes when `imputeMarkers()` has been run first.
+  The dominance coding returns exactly `2pq` at a dosage of `2p`, which is
+  the heterozygote value, so a mean-imputed cell was being counted as an
+  observed heterozygote while a still-missing call correctly contributed
+  zero. On a data set with 5% missing genotypes this shifted entries by up
+  to 0.08 and raised the mean diagonal from 0.91 to 0.96. Cells recorded in
+  the `imputed` assay now get the same zero contribution as a missing call,
+  so the matrix is identical either way. Raised in the Bioconductor review of
+  0.99.5; `Gmatrix()` was never affected, because mean imputation already
+  centres an imputed cell to zero there.
 # BreedingExperiment 0.99.5
 
 Changes made in response to the Bioconductor review

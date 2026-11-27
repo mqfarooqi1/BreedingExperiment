@@ -62,7 +62,13 @@ setMethod("Gmatrix", "BreedingExperiment",
 #' falls between them rather than being forced into one genotype class.
 #'
 #' A missing call is given a dominance contribution of zero, which is the
-#' weight that mean imputation already gives it in [Gmatrix()].
+#' weight that mean imputation already gives it in [Gmatrix()]. A cell that
+#' [imputeMarkers()] has filled is treated the same way, because an expected
+#' dosage is not a genotype: at a dosage of \eqn{2p} the quadratic returns
+#' exactly \eqn{2pq}, so counting it would record every imputed cell as a
+#' heterozygote. The result is therefore the same whether or not
+#' [imputeMarkers()] has been run, provided the object carries the `imputed`
+#' assay that records which cells were filled.
 #'
 #' @inheritParams Gmatrix
 #' @param impute Allow missing dosages, giving them a dominance contribution
@@ -92,7 +98,15 @@ setMethod("Dmatrix", "BreedingExperiment",
     q <- 1 - p
     ## the quadratic through the three Vitezica genotype codes; see Details
     H <- -g^2 + (2 * p + 1) * g - 2 * p^2
+    ## A cell with no genotype call carries no information about dominance,
+    ## and that is equally true whether the call is still missing or has been
+    ## replaced by an expected dosage. Both get a contribution of zero, so
+    ## running imputeMarkers() first cannot change the result. Without the
+    ## second step an imputed dosage of 2p would be read as a heterozygote,
+    ## because the coding above returns exactly 2pq there.
     H[is.na(H)] <- 0
+    filled <- .filled_cells(x, g)
+    if (!is.null(filled)) H[filled] <- 0
     denom <- sum((2 * p * q)^2)
     if (denom <= 0) {
         stop("all markers are monomorphic; cannot build D.", call. = FALSE)
@@ -137,6 +151,19 @@ setMethod("Dmatrix", "BreedingExperiment",
         stop("no polymorphic markers left after filtering.", call. = FALSE)
     }
     g
+}
+
+## Cells that hold an expected dosage rather than a call, aligned to the
+## markers that survived preparation. Both the uncalled-marker drop and the
+## frequency filters remove rows, so the mask is matched up by marker name.
+#' @keywords internal
+#' @noRd
+.filled_cells <- function(x, g) {
+    m <- .imputed_mask(x)
+    if (identical(m, FALSE)) return(NULL)
+    rn <- rownames(g)
+    if (is.null(rn) || is.null(rownames(m))) return(NULL)
+    m[rn, , drop = FALSE]
 }
 
 ## A marker with no calls at all has no allele frequency to impute from, and
