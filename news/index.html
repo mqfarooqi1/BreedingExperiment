@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">BreedingExperiment</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,15 +39,16 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.99.6" id="breedingexperiment-0996">BreedingExperiment 0.99.6<a class="anchor" aria-label="anchor" href="#breedingexperiment-0996"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.1.1" id="breedingexperiment-111">BreedingExperiment 1.1.1<a class="anchor" aria-label="anchor" href="#breedingexperiment-111"></a></h2>
+<p>The same fix is released as 1.0.1 on the RELEASE_3_24 branch. It was prepared as 0.99.6 before acceptance, which Bioconductor’s release cut superseded.</p>
 <div class="section level3">
-<h3 id="bug-fixes-0-99-6">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-99-6"></a></h3>
+<h3 id="bug-fixes-1-1-1">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-1-1-1"></a></h3>
 <ul><li>
 <code><a href="../reference/Dmatrix.html">Dmatrix()</a></code> no longer changes when <code><a href="../reference/imputeMarkers.html">imputeMarkers()</a></code> has been run first. The dominance coding returns exactly <code>2pq</code> at a dosage of <code>2p</code>, which is the heterozygote value, so a mean-imputed cell was being counted as an observed heterozygote while a still-missing call correctly contributed zero. On a data set with 5% missing genotypes this shifted entries by up to 0.08 and raised the mean diagonal from 0.91 to 0.96. Cells recorded in the <code>imputed</code> assay now get the same zero contribution as a missing call, so the matrix is identical either way. Raised in the Bioconductor review of 0.99.5; <code><a href="../reference/Gmatrix.html">Gmatrix()</a></code> was never affected, because mean imputation already centres an imputed cell to zero there. # BreedingExperiment 0.99.5</li>
 </ul><p>Changes made in response to the Bioconductor review (<a href="https://github.com/Bioconductor/BiocContributions/issues/117" class="external-link">#117</a>).</p>
 </div>
 <div class="section level3">
-<h3 id="bug-fixes-0-99-6-1">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-99-6-1"></a></h3>
+<h3 id="bug-fixes-1-1-1-1">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-1-1-1-1"></a></h3>
 <ul><li>
 <code><a href="../reference/Dmatrix.html">Dmatrix()</a></code> no longer mis-codes dosages that are not whole numbers. The Vitezica genotype codes are now evaluated as the quadratic that passes through all three of them, so dosages of 0, 1 and 2 give exactly the published values and an expected dosage from imputation falls between them. Previously anything other than exactly 1 or 2 was coded as the opposite homozygote, which made the dominance matrix wrong whenever genotypes were imputed - including under the default <code>impute = TRUE</code>.</li>
 <li>A missing call now contributes zero to <code><a href="../reference/Dmatrix.html">Dmatrix()</a></code>, matching the weight that mean imputation already gives it in <code><a href="../reference/Gmatrix.html">Gmatrix()</a></code>.</li>
@@ -63,12 +64,12 @@
 <code><a href="../reference/simulateBreeding.html">simulateBreeding()</a></code> validates its arguments, and with <code>n_founder = 2</code> can no longer give an individual itself as both parents, which was a consequence of <code><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample()</a></code> treating a length-one vector as <code>1:n</code>. A population of a single individual is now allowed.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="new-features-0-99-6">New features<a class="anchor" aria-label="anchor" href="#new-features-0-99-6"></a></h3>
+<h3 id="new-features-1-1-1">New features<a class="anchor" aria-label="anchor" href="#new-features-1-1-1"></a></h3>
 <ul><li>
 <code><a href="../reference/imputeMarkers.html">imputeMarkers()</a></code> records which cells it filled in a logical <code>imputed</code> assay, which travels with the object through subsetting and is what lets <code><a href="../reference/alleleFrequency.html">alleleFrequency()</a></code> tell an imputed dosage from a call.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="other-changes-0-99-6">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-0-99-6"></a></h3>
+<h3 id="other-changes-1-1-1">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-1-1-1"></a></h3>
 <ul><li><p><code><a href="../reference/simulateBreeding.html">simulateBreeding()</a></code> now scales the simulated trait so that the genetic and residual variances are exactly <code>h2</code> and <code>1 - h2</code>, and <code>trueBV</code> is on that scale. <code>h2 = 0</code> and <code>h2 = 1</code> behave as they should. Simulated breeding values are therefore on a different scale than in earlier versions.</p></li>
 <li><p>The vignette opens with the motivation for the package and a comparison with <code>SNPRelate</code>, <code>GENESIS</code>, <code>GeneticsPed</code>, <code>Pedixplorer</code>, <code>FamAgg</code> and CRAN’s <code>AGHmatrix</code>, followed by an installation section. It now gives guidance on choosing <code>min_maf</code>, <code>min_call_rate</code>, <code>blend</code> and <code>tune</code>, and ends with a worked single-step BLUP: the mixed model equations solved with <code>H</code>, validated by predicting a withheld generation.</p></li>
 <li><p>Fixed a stray closing parenthesis in a vignette code block.</p></li>

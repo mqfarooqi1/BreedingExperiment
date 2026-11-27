@@ -43,11 +43,11 @@ both at once:
 
 | Package | What it gives you |
 |----|----|
-| *[SNPRelate](https://bioconductor.org/packages/3.23/SNPRelate)* | `snpgdsGRM()`, a genomic relationship matrix from GDS-backed genotypes, and IBD and PCA analyses. Scales far past this package, with no pedigree. |
-| *[GENESIS](https://bioconductor.org/packages/3.23/GENESIS)* | PC-AiR and PC-Relate, kinship estimated from markers while adjusting for ancestry, plus mixed-model association testing. |
-| *[GeneticsPed](https://bioconductor.org/packages/3.23/GeneticsPed)* | Pedigree classes, relationship and inbreeding coefficients. Pedigree only; its own description notes that it is not stable. |
-| *[Pedixplorer](https://bioconductor.org/packages/3.23/Pedixplorer)* | `Pedigree` objects, kinship matrices and pedigree drawing, succeeding `kinship2`. Pedigree only. |
-| *[FamAgg](https://bioconductor.org/packages/3.23/FamAgg)* | Pedigree handling and tests of familial aggregation of traits. Pedigree only. |
+| *[SNPRelate](https://bioconductor.org/packages/3.24/SNPRelate)* | `snpgdsGRM()`, a genomic relationship matrix from GDS-backed genotypes, and IBD and PCA analyses. Scales far past this package, with no pedigree. |
+| *[GENESIS](https://bioconductor.org/packages/3.24/GENESIS)* | PC-AiR and PC-Relate, kinship estimated from markers while adjusting for ancestry, plus mixed-model association testing. |
+| *[GeneticsPed](https://bioconductor.org/packages/3.24/GeneticsPed)* | Pedigree classes, relationship and inbreeding coefficients. Pedigree only; its own description notes that it is not stable. |
+| *[Pedixplorer](https://bioconductor.org/packages/3.24/Pedixplorer)* | `Pedigree` objects, kinship matrices and pedigree drawing, succeeding `kinship2`. Pedigree only. |
+| *[FamAgg](https://bioconductor.org/packages/3.24/FamAgg)* | Pedigree handling and tests of familial aggregation of traits. Pedigree only. |
 
 So Bioconductor can give you relationships from a pedigree, or
 relationships from markers, but not a container that holds both kinds of
@@ -592,7 +592,7 @@ sessionInfo()
 #> [8] base     
 #> 
 #> other attached packages:
-#>  [1] BreedingExperiment_0.99.6   SummarizedExperiment_1.42.0
+#>  [1] BreedingExperiment_1.1.1    SummarizedExperiment_1.42.0
 #>  [3] Biobase_2.72.0              GenomicRanges_1.64.0       
 #>  [5] Seqinfo_1.2.0               IRanges_2.46.0             
 #>  [7] S4Vectors_0.50.3            BiocGenerics_0.58.1        
